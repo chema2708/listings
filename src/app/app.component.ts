@@ -21,10 +21,6 @@ export class AppComponent implements OnInit {
       'extra_fields.article_url': 'pro-c.me'
     }
   }, {
-    'match': {
-      'tags.specialties': 'Cardiology'
-    }
-  }, {
     'range': {
       'extra_fields.expiration_date': {
         'gte': (new Date().getTime() / 1000).toString()
@@ -54,6 +50,8 @@ export class AppComponent implements OnInit {
     })
   };
   curr_url = '';
+  stored_spec = '';
+  curr_spec = ''
   programs: Array<any> = [];
   specialties: Array<String>;
 
@@ -69,10 +67,15 @@ export class AppComponent implements OnInit {
         this.prepareCallBody();
      }
   main_programs: Array<any> = [];
-
   ngOnInit() {
     this.getList().subscribe(data => {
         console.log(data);
+        console.log(location);
+        this.results = new RegExp('[\?&]SpecialtyID=([^&#]*)').exec(window.location.href);
+        this.stored_spec = this.results[1] || 0;
+        if (this.stored_spec.length > 0) {
+            localStorage.setItem('SpecialtyID', this.stored_spec);
+        }
         this.curr_url = location.protocol + '//' + location.host;
       if (data) {
         for (let d in data["hits"]["hits"]) {
