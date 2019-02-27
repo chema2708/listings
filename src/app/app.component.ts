@@ -53,6 +53,7 @@ export class AppComponent implements OnInit {
       'Content-type': 'application/json'
     })
   };
+  curr_url = '';
   programs: Array<any> = [];
   specialties: Array<String>;
 
@@ -68,6 +69,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getList().subscribe(data => {
+        console.log(location);
+        this.curr_url = location.protocol + '//' + location.host;
       if (data) {
         for (let d in data["hits"]["hits"]) {
           if (d == 0 ) {
