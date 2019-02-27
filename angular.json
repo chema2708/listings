@@ -25,7 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/vendor/piwik/pwk.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -81,7 +83,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/vendor/piwik/pwk.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
