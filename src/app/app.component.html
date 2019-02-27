@@ -14,7 +14,7 @@
 
 <main role="main" style="padding-top: 80px">
 <div class="container marketing">
-  <div class="row" style="background-color: #B2D1C2;linear-gradient(rgba(11,104,58,0.4),rgba(255,255,255,0.1))">
+  <div class="row" style="background-color: #B2D1C2;">
     <div class="col-lg-8" id="list">
       <ng-container *ngFor="let main of main_programs">
         <div class="list-element  main-card" style="background-color: whitesmoke; margin: 15px;">
@@ -41,12 +41,12 @@
         </div>
       </ng-container>
     </div>
-    <div class="col-lg-4" id="filter" style="background-color: whitesmoke">
+    <div class="col-lg-4" id="filter" style="background-color: whitesmoke; padding-top:30px;">
       <h3>Explore CME Activities For Your Specialty</h3>
       <p>Pro-CME showcases the best-in-class online continuing medical education programs developed for physicians, nurses, and healthcare professionals. We partner with leading medical and healthcare organizations to bring you top CME activities aimed at improving patient care and clinical outcomes. With a variety of multimedia program formats across 29 specialties, Pro-CME provides a destination for clinicians to participate in the latest educational activities for earning credit towards your CME/CE certification.</p>
       <ul>
         <ng-container *ngFor="let specialty of specialties">
-          <li><a href="#">{{specialty}}</a></li>
+          <li><a [href]="curr_url  + '?SpecialtyID=' + specialty">{{specialty}}</a></li>
         </ng-container>
       </ul>
     </div>
