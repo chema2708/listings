@@ -72,10 +72,13 @@ export class AppComponent implements OnInit {
         console.log(data);
         console.log(location);
         this.results = new RegExp('[\?&]SpecialtyID=([^&#]*)').exec(window.location.href);
-        this.stored_spec = this.results[1] || 0;
-        if (this.stored_spec.length > 0) {
-            localStorage.setItem('SpecialtyID', this.stored_spec);
+        if(this.results){
+            this.stored_spec = this.results[1] || 0;
+            if (this.stored_spec.length > 1) {
+                localStorage.setItem('SpecialtyID', this.stored_spec);
+            }
         }
+        
         this.curr_url = location.protocol + '//' + location.host;
       if (data) {
         for (let d in data["hits"]["hits"]) {
