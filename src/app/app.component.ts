@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getList().subscribe(data => {
-      console.log(data);
       if (data) {
         for (let d in data["hits"]["hits"]) {
           this.programs.push(data["hits"].hits[d]);

@@ -22,8 +22,7 @@
           <div>{{element._source.extra_fields.dgme_credits}}</div>
           <div>{{element._source.extra_fields.dgme_credit_type}}</div>
           <div>{{element._source.extra_fields.dgme_accreditor}}</div>
-          <div>{{element._source.title}}</div>
-          <div>{{element._source.extra_fields.article_url}}</div>
+          <div><a target="_blank" [href]="element._source.extra_fields.article_url">{{element._source.title}}</a></div>
         </div>
         </ng-container>
     </div>
