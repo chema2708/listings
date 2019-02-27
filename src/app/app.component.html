@@ -18,11 +18,13 @@
     <div class="col-lg-8" id="list">
         <ng-container *ngFor="let element of programs">
         <div class="list-element" style="background-color: whitesmoke; margin: 15px;">
-          <div>Image</div>
+          <div class="img-thumbnail"><img style="width: auto; height: 70px;"src="https://spotlight.pro-c.me/sites/spotlight.pro-c.me/files/field_fb_authors_photo/Silverberg_Jonathan_0718%402x.jpg" /></div>
+          <div class="card-content">
           <div>{{element._source.extra_fields.dgme_credits}}</div>
           <div>{{element._source.extra_fields.dgme_credit_type}}</div>
           <div>{{element._source.extra_fields.dgme_accreditor}}</div>
           <div><a target="_blank" [href]="element._source.extra_fields.article_url">{{element._source.title}}</a></div>
+            </div>
         </div>
         </ng-container>
     </div>

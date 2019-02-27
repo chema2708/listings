@@ -6,3 +6,12 @@
 #navbarCollapse {
     float: right !important;
 }
+
+.img-thumbnail {
+    float: left;
+    padding-left: 0;
+}
+
+.card-content {
+    padding-left: 100px;
+}
