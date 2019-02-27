@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getList().subscribe(data => {
-        console.log(location);
+        console.log(data);
         this.curr_url = location.protocol + '//' + location.host;
       if (data) {
         for (let d in data["hits"]["hits"]) {

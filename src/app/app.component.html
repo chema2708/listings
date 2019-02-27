@@ -1,5 +1,58 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<script>
+  var track = function(action, data, newvisit) {
 
+window._paq.push(['setSiteId', 74]);
+window._paq.push(['setTrackerUrl', 'http://hotfix.piwik.pslgroup.com') + 'piwik.php']);
+window._paq.push(['setCookieDomain', '']);
+
+if (data === undefined) {data = {}};
+let i = 0;
+
+// send info (custom vars) to piwik
+let info = {
+    "MemberID": "-",
+    "EmailID": "-",
+    "SpecialtyID": "-",
+    "CountryID": "-",
+    "qsession": "-",
+    "ProfessionID": "-",
+    "AOMID": "-",
+    "AudienceID": "-",
+    "PSLDeviceID": "-"
+};
+i = 1;
+
+
+// clear old values
+for (i = 1; i <= 10; i++) {
+    window._paq.push(['setCustomVariable', i, '', '', 'page']);
+}
+
+// push new values
+i = 1;
+for (var key in data) {
+    window._paq.push(['setCustomVariable', i++, key, data[key], 'page']);
+    if (i > 10) break;
+}
+
+if (typeof(newvisit) !== 'undefined' && newvisit) {
+    window._paq.push(['appendToTrackingUrl', 'new_visit=1']);
+    window._paq.push(['deleteCookies']);
+} else {
+    window._paq.push(['appendToTrackingUrl', 'new_visit=0']);
+}
+
+window._paq.push(['trackPageView', action]);
+  }
+
+  track('view/spotlightListing', {
+                        ProjectNumber: '',
+                        PromoCode: '',
+                        CampaignID: '',
+                        Collection: ''
+                    }, true);
+</script>
 <header>
   <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
     <a class="navbar-brand" href="/" title="Pro-CME" rel="home" id="logo"><img src="https://spotlight.pro-c.me/sites/spotlight.pro-c.me/files/procme-logo.png" alt="Pro-CME" /></a>
