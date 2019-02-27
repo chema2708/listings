@@ -54,6 +54,7 @@ export class AppComponent implements OnInit {
     })
   };
   programs: Array<any> = [];
+  specialties: Array<String>;
 
   constructor (
     private http: HttpClient,
@@ -63,13 +64,19 @@ export class AppComponent implements OnInit {
         this.specialty = params['ScpecialtyID'];
       });
      }
+  main_programs: Array<any> = [];
 
   ngOnInit() {
     this.getList().subscribe(data => {
       if (data) {
         for (let d in data["hits"]["hits"]) {
-          this.programs.push(data["hits"].hits[d]);
+          if (d == 0 ) {
+            this.main_programs.push(data["hits"].hits[d]);
+          } else {
+            this.programs.push(data["hits"].hits[d]);
+          }
         }
+          this.specialties =  ['Oncology','Cardiology','Internal Medicine','Neurology','Paediatrics'];
       }
     });
   }
