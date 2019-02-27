@@ -15,3 +15,21 @@
 .card-content {
     padding-left: 100px;
 }
+
+.main-card{
+    height: 180px;
+    margin-bottom:50px !important;
+}
+
+.list-element {
+    padding: 15px;
+}
+
+a, a:hover {
+    color: #0b683a;
+}
+
+h1, h2, h3, h4 {
+    color: #0b683a !important;
+}
+
