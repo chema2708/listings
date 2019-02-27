@@ -18,7 +18,7 @@
     <div class="col-lg-8" id="list">
       <ng-container *ngFor="let main of main_programs">
         <div class="list-element  main-card" style="background-color: whitesmoke; margin: 15px;">
-          <h4>Spotlight on Internal Medicine</h4>
+          <h4>Spotlight on {{specialtyQS}}</h4>
           <div class="img-thumbnail"><img style="width: auto; height: 100px;"src="https://spotlight.pro-c.me/sites/spotlight.pro-c.me/files/field_fb_authors_photo/Silverberg_Jonathan_0718%402x.jpg" /></div>
           <div class="card-content">
             <div>{{main._source.extra_fields.dgme_credits}}</div>
@@ -28,7 +28,7 @@
           </div>
         </div>
       </ng-container>
-      <h4 style="margin-left:30px">Internal Medicine Presentations</h4>
+      <h4 style="margin-left:30px">{{specialtyQS}} Presentations</h4>
       <ng-container *ngFor="let element of programs">
         <div class="list-element " style="background-color: whitesmoke; margin: 15px;">
           <div class="img-thumbnail"><img style="width: auto; height: 70px;"src="https://spotlight.pro-c.me/sites/spotlight.pro-c.me/files/field_fb_authors_photo/Silverberg_Jonathan_0718%402x.jpg" /></div>

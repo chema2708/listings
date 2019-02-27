@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit {
 
   title = 'listings';
-  specialty = 'SpecialtyID';
+  specialtyQS = '';
   must: Array<Object> = [{
     'match': {
       'type': 'DGME'
@@ -57,12 +57,15 @@ export class AppComponent implements OnInit {
   specialties: Array<String>;
 
   constructor (
-    private http: HttpClient,
-    private _route: ActivatedRoute
+    private http: HttpClient
     ) {
-      this._route.queryParams.subscribe(params => {
-        this.specialty = params['ScpecialtyID'];
-      });
+        let params = new URLSearchParams(window.location.search);
+        if (params.has('SpecialtyID')) {
+          this.specialtyQS = params.get('SpecialtyID');
+        } else {
+          this.specialtyQS = 'Internal Medicine';
+        }
+        this.prepareCallBody();
      }
   main_programs: Array<any> = [];
 
@@ -81,7 +84,16 @@ export class AppComponent implements OnInit {
     });
   }
 
+  prepareCallBody() {
+    this.must.push({
+      'match': {
+        'tags.specialties': this.specialtyQS
+      }
+    });
+  }
+
   getList() {
+    console.log(this.payload);
     return this.http.post('http://staging-es-dgfeedbuilder.pslgroup.com/_search', this.payload, this.options);
   }
 }
